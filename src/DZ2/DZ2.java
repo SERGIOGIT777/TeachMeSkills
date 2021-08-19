@@ -15,9 +15,12 @@ public class DZ2 {
             case 6 -> z6();
             case 7 -> z7();
             case 8 -> {
-                z8();
-                System.out.println();
-                z9();
+                System.out.println("Какую фигуру рисовать\n1. Два треугольника\n2. Ромб");
+                var b = new Scanner(System.in).nextInt();
+                switch (b){
+                    case 1 -> z8();
+                    case 2 -> z9();
+                }
             }
             default -> System.err.println("Error!!!");
         }
@@ -94,49 +97,42 @@ public class DZ2 {
 
     static void z8() {
         for (int i = 0; i < 4; i++) {
-            if (i == 1) {
-                for (int j = 4; j > i + 1; j--) {
-                    System.out.print("  ");
-                }
-            } else {
-                for (int j = 4; j > i; j--) {
-                    if (i % 2 == 0) {
-                        System.out.print(" ");
-                    } else {
-                        System.out.print("");
-                    }
-                }
+            for (int j = 4; j > i + 1; j--) {
+                System.out.print("  ");
             }
             for (int k = 1; k <= i + 1; k++) {
-                if (i == 0) {
-                    System.out.print("   *");
-                } else if (i == 1) {
-                    System.out.print(" *");
-                } else {
-                    System.out.print(" *");
-                }
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        for (int i = 3; i >= 0; i--) {
+            for (int j = 3; j > i; j--) {
+                System.out.print("  ");
+            }
+            for (int k = 1; k <= i + 1; k++) {
+                System.out.print(" *");
             }
             System.out.println();
         }
     }
 
     static void z9() {
-        for (int i = 3; i >= 0; i--) {
-            for (int j = 3; j > i; j--) {
-                if (i >= 1) {
-                    System.out.print("  ");
-                } else {
-                    System.out.print(" ");
-                }
+        for (int i = 0; i < 4; i++) {
+            for (int j = 4; j > i + 1; j--) {
+                System.out.print(" ");
             }
             for (int k = 1; k <= i + 1; k++) {
-                if (i == 0) {
-                    System.out.print("    *");
-                } else if (i == 1) {
-                    System.out.print(" *");
-                } else {
-                    System.out.print(" *");
-                }
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        for (int i = 3; i >= 0; i--) {
+            for (int j = 3; j > i; j--) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i + 1; k++) {
+                System.out.print("* ");
             }
             System.out.println();
         }
