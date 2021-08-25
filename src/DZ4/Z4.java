@@ -15,7 +15,7 @@ public class Z4 {
             for (int j = 0; j < mass.length; j++) {
                 mass[i][j] = number.nextInt(50);
                 System.out.printf("%d\t", mass[i][j]);
-                if ((i + j) == mass.length-2) {
+                if ((i + j) == mass.length - 2) {
                     if (mass[i][j] % 2 == 0) {
                         chet += mass[i][j];
                     }
