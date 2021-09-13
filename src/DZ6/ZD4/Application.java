@@ -18,7 +18,8 @@ public class Application {
         var tempS = s.split("\\.");
         for (int i = 0; i < tempS.length; i++) {
             var tempSS = tempS[i];
-            if (textFormatter.inputString(tempSS) >= 3 && textFormatter.inputString(tempSS) <= 5) {
+            if (textFormatter.inputString(tempSS) >= 3 && textFormatter.inputString(tempSS) <= 5
+                && !(Objects.equals(textFormatter.polimorfInput(tempSS), "true"))) {
                 textImport = tempSS;
                 PrintWriter writer = new PrintWriter(outputStream, "UTF-8");
                 writer.println(textImport);
