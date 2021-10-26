@@ -3,6 +3,7 @@ package DZ11;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class University {
     public static void main(String[] args) {
@@ -26,10 +27,10 @@ public class University {
             System.out.println("Выберите действие:\n1 - Группировка студентов по курсу" +
                     "\n2 - Список специальностей в алфавитном порядке\n3 - Количество учащихся на каждой из специальностей" +
                     "\n4 - Таблица студентов по специальности и курсу" +
-                    "\n5 - Поиск по спеиальности (заданой)\n6 - Выход");
+                    "\n5 - Поиск по спеиальности (заданой)\n6 - Список курсов и специальностей\n7 - Выход");
             var ind = scan.nextInt();
-            if (ind == 6) break;
-            if (ind < 0 || ind > 5) {
+            if (ind == 7) break;
+            if (ind < 0 || ind > 6) {
                 System.err.println("Не верный идентификатор");
                 continue;
             }
@@ -64,6 +65,11 @@ public class University {
                 case 5 -> students.stream()
                         .filter((stud -> EnumSet.of(Speciality.ComputerScience)
                                 .contains(stud.getSp())))
+                        .forEach(System.out::println);
+                case 6 -> students.stream()
+                        .flatMap(p-> Stream.of(String.format("Курс %d, специальность %s", p.getNumber(), p.getSp())))
+                        .distinct()
+                        .sorted()
                         .forEach(System.out::println);
             }
         }
